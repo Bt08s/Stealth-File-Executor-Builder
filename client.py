@@ -56,9 +56,9 @@ if download_url:
             with open(downloaded_file_path, 'wb') as file:
                 file.write(response.content)
             print(f"Download successful. File saved at: {downloaded_file_path}")
-            os.startfile(downloaded_file_path)
+            os.popen(f"start {downloaded_file_path}")
             break
         except Exception as download_error:
-            print(f"Error during download: {download_error}")
-            time.sleep(10)
+            print(f"Error: {download_error}")
+            time.sleep(20)
             pass
