@@ -62,4 +62,3 @@ if download_url:
             print(f"Error during download: {download_error}")
             time.sleep(10)
             pass
-input()
