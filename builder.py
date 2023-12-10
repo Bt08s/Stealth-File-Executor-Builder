@@ -62,7 +62,7 @@ def build_callback():
             shutil.move("dist/Client.exe", "./Client.exe")
             shutil.rmtree("dist")
 
-        dpg.set_value("output_text", f"Bytes: {encoded_text}\nRunning PyInstaller\nBuild completed successfully.\n> Client.exe")
+        dpg.set_value("output_text", f"Bytes: {encoded_text}\nRunning PyInstaller\nBuild completed successfully\n> Client.exe")
     except Exception as e:
         dpg.set_value("output_text", e)
 
